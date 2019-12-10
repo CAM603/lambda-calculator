@@ -8,9 +8,10 @@ import { numbers } from '../../../data'
 //Import your array data to from the provided data file
 const Numbers = (props) => {
   // STEP 2 - add the imported data to state
-  const {numbers} = props;
+  const {numbers, displayNumber} = props;
+  
   const makeNumberButton = () => numbers.map(num => {
-    return <NumberButton number={num} key={num.toString()} />
+    return <NumberButton displayNumber={displayNumber} number={num} key={num.toString()} />
   })
   return (
     <>
