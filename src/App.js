@@ -13,9 +13,19 @@ import Logo from "./components/DisplayComponents/Logo";
 
 function App() {
   const [numberState, setNumberState] = useState(numbers);
+  const [screenState, setScreenState] = useState(0)
 
+  const calculator = {
+    num1 : null,
+    num2 : null,
+    operator : ''
+  }
   
-  
+  let screen = screenState; 
+
+  const something = (event) => {
+    setScreenState(event.target.textContent)
+  }
   
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
@@ -28,10 +38,10 @@ function App() {
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-      <Display />
+      <Display screen={screen}/>
       <Numbers 
       numbers={numbers}
-      displayNumber={numberState}
+      something={something}
       />
       <Operators operators={operators} />
       <Specials specials={specials} />
