@@ -9,12 +9,12 @@ import { numbers } from '../../../data'
 const Numbers = (props) => {
   // STEP 2 - add the imported data to state
   const {numbers} = props;
-  const makeButton = () => numbers.map(num => {
+  const makeNumberButton = () => numbers.map(num => {
     return <NumberButton number={num} key={num.toString()} />
   })
   return (
     <div>
-      {makeButton()}
+      {makeNumberButton()}
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
       component matching the name on the provided file. Pass
       it any props needed by the child component*/}
