@@ -8,12 +8,11 @@ import { numbers } from '../../../data'
 //Import your array data to from the provided data file
 const Numbers = (props) => {
   // STEP 2 - add the imported data to state
-    const {numbers} = props;
-    console.log(numbers)
+  const {numbers} = props;
   return (
     <div>
       {numbers.map(num => {
-        return <NumberButton number={num} key={num.toString()}/>
+        return <NumberButton number={num} key={num.toString()} />
       })}
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
       component matching the name on the provided file. Pass
