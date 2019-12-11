@@ -5,10 +5,10 @@ import OperatorButton from "./OperatorButton";
 //Import your array data to from the provided data file
 
 const Operators = (props) => {
-  const { operators } = props;
+  const { operators, operate } = props;
   
   const makeOperatorNumber = () => operators.map(op => {
-      return <OperatorButton operator={op.char} value={op.value} key={op.value}/>
+      return <OperatorButton operate={operate} operator={op.char} value={op.value} key={op.value}/>
     })
   // STEP 2 - add the imported data to state
   return (

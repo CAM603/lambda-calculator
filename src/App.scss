@@ -1,29 +1,117 @@
-.container {
-    background-color: #c00025;
-    width: 100%;
-    max-width: 550px;
-    border-radius: 15px;
-    border: 2px solid grey;
-    padding-bottom: 25px;
-    .logo-container {
-        display: flex;
-        justify-content: center;
-    }
-    .App {
+#root {
 
-        .display {
-            margin-top: 25px;
-            height: 100px;
-            width: 450px;
-            border-radius: 50px;
-            color: white;
-            background-color: #322c2d;
-            box-shadow: 1px 1px #322c2d;
+    display: flex;
+    justify-content: center;
+    
+    .container {
+        background-color: #c00025;
+        width: 100%;
+        max-width: 650px;
+        border-radius: 15px;
+        border: 2px solid grey;
+        padding-bottom: 25px;
+        .logo-container {
             display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            padding-right: 8%;
-            font-size: 5.0rem;
+            justify-content: flex-start;
+            margin: 20px 0px 0px 20px;
+        }
+        .App {
+            display: grid;
+            padding: 20px;
+            gap: 5px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-areas: 
+            "screen screen screen screen"
+            "clear posneg percent divide"
+            "one two three multiply"
+            "four five six minus"
+            "seven eight nine plus"
+            "zero zero decimal equals";
+            .display {
+                margin: 25px;
+                height: 100px;
+                border-radius: 50px;
+                color: white;
+                background-color: #322c2d;
+                box-shadow: 1px 1px #322c2d;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                padding-right: 8%;
+                font-size: 5.0rem;
+                grid-area: screen;
+            }
+            .button, .operator, .special {
+                font-size: 3rem;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                border: 5px solid rgba(0, 0, 0, 0.15);
+                border-radius: 5rem;
+                outline: none;
+            }
+    
+            
+            .button:nth-child(11) {
+                grid-area: zero;
+            }
+            .button:nth-child(2) {
+                grid-area: one;
+            }
+            .button:nth-child(3) {
+                grid-area: two;
+            }
+            .button:nth-child(4) {
+                grid-area: three;
+            }
+            .button:nth-child(5) {
+                grid-area: four;
+            }
+            .button:nth-child(6) {
+                grid-area: five;
+            }
+            .button:nth-child(7) {
+                grid-area: six;
+            }
+            .button:nth-child(8) {
+                grid-area: seven;
+            }
+            .button:nth-child(9) {
+                grid-area: eight;
+            }
+            .button:nth-child(10) {
+                grid-area: nine;
+            }
+            .button:nth-child(12) {
+                grid-area : decimal;
+            }
+            .operator:nth-child(13) {
+                grid-area: divide;
+            }
+            .operator:nth-child(14) {
+                grid-area: multiply;
+            }
+            .operator:nth-child(15) {
+                grid-area: minus;
+            }
+            .operator:nth-child(16) {
+                grid-area: plus;
+            }
+            .operator:nth-child(17) {
+                grid-area: equals;
+            }
+            .special:nth-child(18) {
+                grid-area: clear;
+            }
+            .special:nth-child(19) {
+                grid-area: posneg;
+            }
+            .special:nth-child(20) {
+                grid-area: percent;
+            }
+    
         }
     }
 }
+

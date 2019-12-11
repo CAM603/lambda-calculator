@@ -18,14 +18,43 @@ function App() {
   const calculator = {
     num1 : null,
     num2 : null,
-    operator : ''
+    operator : '',
+    calculate() {
+      return this.operator === '+' ? +this.num1 + +this.num2
+      : this.operator === '-' ? this.num1 - this.num2
+      : this.operator === 'x' ? this.num1 * this.num2
+      : this.operator === '/' ? this.num1 / this.num2
+      : console.log('You broke me')
+    }
   }
   
   let screen = screenState; 
 
+  // Make first number appear on screen
   const something = (event) => {
-    setScreenState(event.target.textContent)
+    if (screen === 0) {
+      setScreenState(event.target.textContent)
+    } else {
+      setScreenState(screen += event.target.textContent)
+    }
   }
+  // Operator button adds screen value to calculator object
+  const operate = (event) => {
+    if (event.target.textContent !== "=") {
+      calculator.num1 = screen
+      calculator.operator = event.target.textContent
+      screen = ''
+    } else {
+      calculator.num2 = screen
+      setScreenState(calculator.calculate())
+    }
+    console.log(calculator)
+  }
+  // event.target.textContent === "+" ? setScreenState()
+  // : event.target.textContent === "-" ? console.log('minus')
+  // : event.target.textContent === "x" ? console.log('multiply')
+  // : event.target.textContent === "/" ? console.log('divide')
+  // : console.log('damn')
   
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
@@ -43,7 +72,10 @@ function App() {
       numbers={numbers}
       something={something}
       />
-      <Operators operators={operators} />
+      <Operators 
+      operators={operators}
+      operate={operate}
+      />
       <Specials specials={specials} />
       </div>
     </div>
